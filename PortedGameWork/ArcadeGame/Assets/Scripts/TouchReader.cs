@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
@@ -21,6 +22,13 @@ public class TouchReader : MonoBehaviour
             if (touch.time - firstTapTime <= doubleTapTimeout) 
             {
                 Debug.Log("Double Tap");
+
+                if (GravitySensor.current == null) {
+                    InputSystem.EnableDevice(GravitySensor.current);
+                } else {
+                    InputSystem.DisableDevice(GravitySensor.current);
+                }
+
             } else 
             {
                 firstTapTime = touch.time;

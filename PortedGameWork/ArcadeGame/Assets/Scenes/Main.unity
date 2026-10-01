@@ -4757,6 +4757,7 @@ GameObject:
   - component: {fileID: 940191315}
   - component: {fileID: 940191314}
   - component: {fileID: 940191316}
+  - component: {fileID: 940191317}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -4803,6 +4804,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b76d79923bb44fe8436ebed8252332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &940191317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940191313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a6b77633bd749ecb50c9a733e2832a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchReader
 --- !u!1 &953538688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4916,7 +4929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -581, y: -288}
+  m_AnchoredPosition: {x: -581, y: -230}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966293666
@@ -5737,7 +5750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 638, y: -288}
+  m_AnchoredPosition: {x: 627, y: -224}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621545245
