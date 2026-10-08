@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     InputAction moveAction;
 
     void OnEnable() {
-        if (Accelerometer.current != null)
-        {
-            InputSystem.EnableDevice(Accelerometer.current);
-            Debug.Log("Accelerometer enabled");
-        }
+        // if (Accelerometer.current != null)
+        // {
+        //     InputSystem.EnableDevice(Accelerometer.current);
+        //     Debug.Log("Accelerometer enabled");
+        // }
     }
 
     private void Start()
@@ -29,13 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Accelerometer.current == null)
-            return;
+        // if (Accelerometer.current == null)
+        //     return;
 
-        Vector3 acceleration =
-            Accelerometer.current.acceleration.ReadValue();
+        // Vector3 acceleration =
+        //     Accelerometer.current.acceleration.ReadValue();
 
-        Debug.Log($"Accelerometer: {acceleration}");
+        // Debug.Log($"Accelerometer: {acceleration}");
 
         // Get input using Vector2 for use with linear velocity
         Vector2 moveValue = moveAction.ReadValue<Vector2>();
@@ -44,12 +44,12 @@ public class PlayerMovement : MonoBehaviour
         float verticalInputAxis = moveValue.y;
         float horizontalInputAxis = moveValue.x;
 
-        if (GravitySensor.current != null) {
-            Vector3 gravity = GravitySensor.current.gravity.ReadValue();
-            moveValue = new Vector2(gravity.x, gravity.y);
+        // if (GravitySensor.current != null) {
+        //     Vector3 gravity = GravitySensor.current.gravity.ReadValue();
+        //     moveValue = new Vector2(gravity.x, gravity.y);
 
-            Debug.Log(moveValue);
-        }
+        //     Debug.Log(moveValue);
+        // }
 
         // Apply input axis to linear velocity with adjustable movement speed variable
         gameObject.GetComponent<Rigidbody2D>().linearVelocity = movementSpeed * moveValue;

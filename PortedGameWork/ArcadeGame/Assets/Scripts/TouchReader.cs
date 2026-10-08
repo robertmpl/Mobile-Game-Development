@@ -23,11 +23,11 @@ public class TouchReader : MonoBehaviour
             {
                 Debug.Log("Double Tap");
 
-                if (GravitySensor.current == null) {
-                    InputSystem.EnableDevice(GravitySensor.current);
-                } else {
-                    InputSystem.DisableDevice(GravitySensor.current);
-                }
+                // if (GravitySensor.current == null) {
+                //     InputSystem.EnableDevice(GravitySensor.current);
+                // } else {
+                //     InputSystem.DisableDevice(GravitySensor.current);
+                // }
 
             } else 
             {
