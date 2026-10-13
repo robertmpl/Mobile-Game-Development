@@ -3,9 +3,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
- 
+
 public class TouchReader : MonoBehaviour
 {
+     
+    public GameObject pauseText;
+
     void OnEnable()  => EnhancedTouchSupport.Enable();
     void OnDisable() => EnhancedTouchSupport.Disable();
  
@@ -22,6 +25,14 @@ public class TouchReader : MonoBehaviour
             if (touch.time - firstTapTime <= doubleTapTimeout) 
             {
                 Debug.Log("Double Tap");
+
+                if (Time.timeScale == 1.0f) {
+                    Time.timeScale = 0f;
+                    pauseText.SetActive(true);
+                } else {
+                    Time.timeScale = 1.0f;
+                    pauseText.SetActive(false);
+                }
 
                 // if (GravitySensor.current == null) {
                 //     InputSystem.EnableDevice(GravitySensor.current);
