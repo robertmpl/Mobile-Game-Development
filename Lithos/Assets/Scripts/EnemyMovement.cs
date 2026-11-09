@@ -22,7 +22,10 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (currentNode >= nodes.Length)
+        {
+            Destroy(gameObject); 
             return;
+        }
 
         Transform targetNode = nodes[currentNode];
 
