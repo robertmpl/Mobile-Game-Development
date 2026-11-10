@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] public float enemySpeed = 1.0f;
-
+    private WaveManager waveManager;
     private EnemyPath enemyPath;
     private Transform[] nodes;
 
@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     void Awake()
     {
         enemyPath = GameObject.Find("EnemyPath").GetComponent<EnemyPath>();
+        waveManager = GameObject.Find("WaveManager").GetComponent<WaveManager>();
     }
 
     void Start()
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (currentNode >= nodes.Length)
         {
+            waveManager.EnemyDestroyed();
             Destroy(gameObject); 
             return;
         }
