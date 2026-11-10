@@ -1,23 +1,48 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
-public class TowerPlacement : MonoBehaviour
+public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    private bool towerPanelOpen = true;
+    private Button button;
 
-    [SerializeField] private GameObject towerPanel;
+    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private GameObject towerPreviewPrefab;
 
-    public void ToggleTowerPanel()
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private LayerMask placementMask;
+
+    private GameObject towerPreview;
+    private Vector2 pointerPosition;
+    private bool isDragging = false;
+
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (towerPanelOpen)
-        {
-            towerPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-125f, 0f);
-        } else
-        {
-            towerPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(125f, 0f);
-        }
+        isDragging = true;
+        pointerPosition = eventData.position;
 
-        towerPanelOpen = !towerPanelOpen;
+        towerPreview = Instantiate(towerPreviewPrefab);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("dragging");
+        pointerPosition = eventData.position;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isDragging = false;
+        
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, 10f));
+
+        worldPosition.z = 0f;
+
+        GameObject placedTower = Instantiate(towerPrefab, worldPosition, Quaternion.identity);
+
+        Destroy(towerPreview);
+        towerPreview = null;
     }
 
     void Start()
@@ -25,9 +50,17 @@ public class TowerPlacement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!isDragging || towerPreview == null)
+        {
+            return;
+        }
+
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, 10f));
+
+        worldPosition.z = 0f;
+
+        towerPreview.transform.position = worldPosition;
     }
 }
