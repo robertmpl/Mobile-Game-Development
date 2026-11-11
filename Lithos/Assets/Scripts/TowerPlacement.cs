@@ -11,7 +11,6 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField] private GameObject towerPreviewPrefab;
 
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private LayerMask placementMask;
 
     private GameObject towerPreview;
     private Vector2 pointerPosition;
@@ -43,11 +42,6 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
         Destroy(towerPreview);
         towerPreview = null;
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()

@@ -33,9 +33,4 @@ public class MainMenu : MonoBehaviour
         backButton.onClick.AddListener(BackButtonClicked);
         playLevelOneButton.onClick.AddListener(PlayLevelOneButtonClicked);
     }
-
-    void Update()
-    {
-        
-    }
 }
