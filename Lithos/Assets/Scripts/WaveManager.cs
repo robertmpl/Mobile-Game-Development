@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Transform spawnNode;
 
     [SerializeField] private GameObject nextWaveButton;
+    [SerializeField] private GameObject levelCompletedPanel;
     [SerializeField] private TMP_Text autoSkipText;
     public bool autoSkipWaves = true;
 
@@ -23,7 +25,7 @@ public class WaveManager : MonoBehaviour
     {
         if (waveInProgress || currentWave >= waves.Length)
         {
-            Debug.Log(waves.Length);
+            levelCompletedPanel.SetActive(true);
             return;
         }
         waveInProgress = true;
