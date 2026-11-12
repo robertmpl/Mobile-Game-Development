@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   healthText: {fileID: 1152831091}
   gameOverPanel: {fileID: 650636841}
-  baseHealth: 1
+  baseHealth: 100
 --- !u!4 &1159083035
 Transform:
   m_ObjectHideFlags: 0
