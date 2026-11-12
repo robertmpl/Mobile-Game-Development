@@ -9,12 +9,17 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private GameObject towerPreviewPrefab;
-
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private IOSHaptics IosHaptics;
 
     private GameObject towerPreview;
     private Vector2 pointerPosition;
     private bool isDragging = false;
+
+    void Awake()
+    {
+        IosHaptics = IosHaptics.GetComponent<IOSHaptics>();
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -39,6 +44,8 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         worldPosition.z = 0f;
 
         GameObject placedTower = Instantiate(towerPrefab, worldPosition, Quaternion.identity);
+
+        IosHaptics.Light();
 
         Destroy(towerPreview);
         towerPreview = null;
