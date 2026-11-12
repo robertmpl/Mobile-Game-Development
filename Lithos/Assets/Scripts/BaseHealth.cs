@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BaseHealth : MonoBehaviour
 {
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private GameObject gameOverPanel;
 
     public float baseHealth = 100f;
 
@@ -15,7 +17,8 @@ public class BaseHealth : MonoBehaviour
 
         if (baseHealth <= 0)
         {
-            
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
         }
     }
 
@@ -24,6 +27,11 @@ public class BaseHealth : MonoBehaviour
         baseHealth = baseHealth + healthGain;
 
         healthText.text = "Health: " +baseHealth;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
