@@ -27,6 +27,8 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         pointerPosition = eventData.position;
 
         towerPreview = Instantiate(towerPreviewPrefab);
+        
+        IosHaptics.Light();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -45,7 +47,7 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
         GameObject placedTower = Instantiate(towerPrefab, worldPosition, Quaternion.identity);
 
-        IosHaptics.Light();
+        IosHaptics.Medium();
 
         Destroy(towerPreview);
         towerPreview = null;
