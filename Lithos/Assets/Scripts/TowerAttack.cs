@@ -40,8 +40,17 @@ public class TowerAttack : MonoBehaviour
 
         if (enemyHealth)
         {
+            RotateToEnemy();
             enemyHealth.TakeDamage(damage);
         }
+    }
+
+    void RotateToEnemy()
+    {
+        Vector2 enemyDirection = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(enemyDirection.y, enemyDirection.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     void Update()
