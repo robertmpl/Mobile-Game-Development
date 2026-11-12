@@ -393,6 +393,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &341077441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341077443}
+  - component: {fileID: 341077442}
+  m_Layer: 0
+  m_Name: IOSHaptics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &341077442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341077441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61792d38f6455438993853cb744b43e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IOSHaptics
+--- !u!4 &341077443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341077441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1412.6863, y: 533.56537, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &408030007
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,9 +756,7 @@ MonoBehaviour:
   towerPrefab: {fileID: 67787676562317095, guid: fd20cde95897044b598de91e6c8eced3, type: 3}
   towerPreviewPrefab: {fileID: 67787676562317095, guid: 915b172dad36b4bdaa5ef2d161b516c8, type: 3}
   mainCamera: {fileID: 801609294}
-  placementMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  IosHaptics: {fileID: 341077442}
 --- !u!1 &725414610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,3 +2131,4 @@ SceneRoots:
   - {fileID: 287031049}
   - {fileID: 1218408316}
   - {fileID: 408030009}
+  - {fileID: 341077443}
