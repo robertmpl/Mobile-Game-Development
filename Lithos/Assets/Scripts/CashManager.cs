@@ -7,7 +7,7 @@ public class CashManager : MonoBehaviour
 
     public float cash = 100f;
 
-    public bool transaction(float price)
+    public bool Transaction(float price)
     {
         if (cash >= price)
         {
@@ -17,6 +17,18 @@ public class CashManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void AddCash(float addedCash)
+    {
+        cash = cash + addedCash;
+        cashText.text = "$" +cash;
+    }
+
+    public void RemoveCash(float removeCash)
+    {
+        cash = cash - removeCash;
+        cashText.text = "$" +cash;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

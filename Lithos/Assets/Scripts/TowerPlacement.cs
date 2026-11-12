@@ -43,7 +43,7 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     {
         isDragging = false;
         
-        if (cashManager.transaction(10f))
+        if (cashManager.Transaction(10f))
         {
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, 10f));
 
