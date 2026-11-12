@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
@@ -11,6 +12,7 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField] private GameObject towerPreviewPrefab;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private IOSHaptics IosHaptics;
+    [SerializeField] private CashManager cashManager;
 
     private GameObject towerPreview;
     private Vector2 pointerPosition;
@@ -18,6 +20,7 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     void Awake()
     {
+        cashManager = cashManager.GetComponent<CashManager>();
         IosHaptics = IosHaptics.GetComponent<IOSHaptics>();
     }
 
@@ -33,7 +36,6 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("dragging");
         pointerPosition = eventData.position;
     }
 
@@ -41,11 +43,14 @@ public class TowerPlacement : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     {
         isDragging = false;
         
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, 10f));
+        if (cashManager.transaction(10f))
+        {
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(pointerPosition.x, pointerPosition.y, 10f));
 
-        worldPosition.z = 0f;
+            worldPosition.z = 0f;
 
-        GameObject placedTower = Instantiate(towerPrefab, worldPosition, Quaternion.identity);
+            GameObject placedTower = Instantiate(towerPrefab, worldPosition, Quaternion.identity);
+        }
 
         IosHaptics.Medium();
 
