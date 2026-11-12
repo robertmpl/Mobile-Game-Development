@@ -1292,6 +1292,10 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 226f909a83cf349d380a2b0a42746028, type: 2}
   - {fileID: 11400000, guid: 750d3cba1363b4bb2ad002a64ef58f02, type: 2}
+  - {fileID: 11400000, guid: 2999cac3d9bb7470dba33877ff2f8597, type: 2}
+  - {fileID: 11400000, guid: cab1b39942c4e4bd7ba94d44993af76f, type: 2}
+  - {fileID: 11400000, guid: 01bb08b4331694614be3dec7a1227adb, type: 2}
+  - {fileID: 11400000, guid: b151000bd31304f3aa814f2a1f39db0e, type: 2}
   spawnNode: {fileID: 1695726417}
   nextWaveButton: {fileID: 1115560497}
   autoSkipText: {fileID: 1834152297}

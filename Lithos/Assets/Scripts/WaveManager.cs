@@ -22,8 +22,10 @@ public class WaveManager : MonoBehaviour
     public void StartNextWave()
     {
         if (waveInProgress || currentWave >= waves.Length)
+        {
+            Debug.Log(waves.Length);
             return;
-
+        }
         waveInProgress = true;
 
         StartCoroutine(SpawnWave(waves[currentWave]));
